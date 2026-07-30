@@ -1,8 +1,8 @@
 backend:
   name: github
-  repo: YOUR-GITHUB-USER/theinteractivedesigner   # CHANGE ME
+  repo: thump76/theinteractivedesigner
   branch: main
-  base_url: https://tid-cms-auth.YOUR-SUBDOMAIN.workers.dev  # CHANGE ME
+  base_url: https://tid-cms-auth.philipbrumpton.workers.dev
   auth_endpoint: auth
 
 # Images land here in the repo...
@@ -11,7 +11,7 @@ media_folder: public/images/uploads
 public_folder: /images/uploads
 
 publish_mode: simple
-site_url: https://theinteractivedesigner.co.uk   # CHANGE ME
+site_url: https://theinteractivedesigner.co.uk
 
 collections:
   - name: posts
