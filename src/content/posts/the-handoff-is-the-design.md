@@ -1,7 +1,11 @@
 ---
-title: The handoff is the design
+title: What's it all about Alfie?
 date: 2026-07-22
 standfirst: If the build doesn't match the file, the file was never finished. A design that can't survive contact with a browser is a picture of a design.
+image: /images/uploads/IMG_2796.jpeg
+imageAlt: QR code on a coffee bag
+link: https://vendum.coffee
+linkLabel: VENDUM Coffee
 linkedin: false
 draft: false
 ---
