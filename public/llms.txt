@@ -1,0 +1,10 @@
+# The Interactive Designer
+
+> Notes on interactive design by a designer who works in the browser —
+> interfaces, typography, front-end craft, and the gap between a design
+> and the thing that actually ships.
+
+## Content
+
+- [Archive](https://theinteractivedesigner.co.uk/): every post, newest first
+- [RSS](https://theinteractivedesigner.co.uk/rss.xml): full text of every post

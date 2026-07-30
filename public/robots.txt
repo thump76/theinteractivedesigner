@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /linkedin.xml
+
+Sitemap: https://theinteractivedesigner.co.uk/sitemap-index.xml

@@ -1,0 +1,457 @@
+/* ---------------------------------------------------------------
+   Bikes&.co — Writing
+   International Typographic Style. Bauhaus primaries.
+   One typeface. Hierarchy by size and weight only.
+   Tokens live here; nothing below :root invents a value.
+   --------------------------------------------------------------- */
+
+:root {
+  /* Bauhaus primaries. Flat, saturated, no tints. */
+  --red:    #E30613;
+  --yellow: #FFCE00;
+  --blue:   #0057B8;
+
+  --black:  #000000;
+  --white:  #FFFFFF;
+  --grey:   #6E6E6E;   /* secondary text only */
+  --rule:   #000000;
+
+  /* One family. Real Helvetica on Apple, Arial elsewhere. */
+  --sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  /* Modular scale, big jumps — Swiss doesn't do gentle gradations */
+  --t-label: 0.6875rem;
+  --t-small: 0.8125rem;
+  --t-body:  1.0625rem;
+  --t-lead:  1.375rem;
+  --t-mid:   clamp(1.5rem, 3.4vw, 2.25rem);
+  --t-large: clamp(2.25rem, 7vw, 4.5rem);
+  --t-huge:  clamp(2.75rem, 9vw, 7rem);
+
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --bar: 14px;         /* height of the primary colour band */
+  --measure: 33rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--black);
+  font-family: var(--sans);
+  font-size: var(--t-body);
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--black); text-underline-offset: 0.15em; }
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* --- Grid -----------------------------------------------------
+   12 columns on desktop, 4 on small screens. Everything sits on it.
+   --------------------------------------------------------------- */
+
+.shell {
+  max-width: 78rem;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: var(--gutter);
+}
+
+@media (max-width: 64rem) {
+  .grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* --- Labels ---------------------------------------------------- */
+
+.label {
+  font-size: var(--t-label);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 0;
+}
+
+/* --- Masthead -------------------------------------------------- */
+
+.masthead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding: 1.5rem 0 0.875rem;
+  border-bottom: 3px solid var(--black);
+}
+
+.wordmark {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.wordmark mark {
+  background: var(--red);
+  color: var(--white);
+  padding: 0.15em 0.35em;
+  margin-left: 0.3em;
+}
+
+.masthead nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.masthead nav a {
+  font-size: var(--t-label);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.masthead nav a:hover { color: var(--red); }
+
+/* --- Primary band ---------------------------------------------
+   Functions as a rule. Three unequal fields, no gaps.
+   --------------------------------------------------------------- */
+
+.band {
+  display: grid;
+  grid-template-columns: 5fr 3fr 4fr;
+  height: var(--bar);
+}
+
+.band i { display: block; }
+.band i:nth-child(1) { background: var(--red); }
+.band i:nth-child(2) { background: var(--yellow); }
+.band i:nth-child(3) { background: var(--blue); }
+
+/* --- Hero ------------------------------------------------------ */
+
+.hero {
+  padding: clamp(3rem, 8vw, 6rem) 0 clamp(2rem, 5vw, 3.5rem);
+  align-items: end;
+  row-gap: 2rem;
+}
+
+.hero__title {
+  grid-column: 1 / 10;
+  font-size: var(--t-huge);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  margin: 0;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.hero__title em {
+  font-style: normal;
+  color: var(--red);
+}
+
+.hero__note {
+  grid-column: 10 / 13;
+  font-size: var(--t-small);
+  line-height: 1.4;
+  margin: 0;
+  padding-bottom: 0.5rem;
+}
+
+@media (max-width: 64rem) {
+  .hero__title { grid-column: 1 / -1; }
+  .hero__note  { grid-column: 1 / -1; }
+}
+
+/* --- Archive ---------------------------------------------------
+   One row per post. The numeral is the colour event; it cycles
+   through the three primaries and nothing else is coloured.
+   --------------------------------------------------------------- */
+
+.archive { padding-bottom: 6rem; }
+
+.entry {
+  border-top: 1px solid var(--rule);
+  padding: 1.75rem 0 2.25rem;
+  align-items: start;
+  row-gap: 1.25rem;
+}
+
+.entry:last-child { border-bottom: 1px solid var(--rule); }
+
+.entry__marker {
+  grid-column: 1 / 2;
+  aspect-ratio: 1;
+  min-width: 2.75rem;
+  max-width: 4.5rem;
+  display: grid;
+  place-items: center;
+  font-size: clamp(1.125rem, 2.2vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.entry__marker[data-hue='red']    { background: var(--red);    color: var(--white); }
+.entry__marker[data-hue='blue']   { background: var(--blue);   color: var(--white); }
+.entry__marker[data-hue='yellow'] { background: var(--yellow); color: var(--black); }
+
+.entry__body { grid-column: 2 / 9; }
+
+.entry__date {
+  font-size: var(--t-label);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin: 0 0 0.5rem;
+}
+
+.entry__title {
+  font-size: var(--t-mid);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+  max-width: 18ch;
+}
+
+.entry__title a { text-decoration: none; }
+.entry__title a:hover { color: var(--red); }
+
+.entry__standfirst {
+  margin: 0;
+  color: var(--grey);
+  max-width: 40ch;
+  font-size: var(--t-small);
+  line-height: 1.45;
+}
+
+.entry__thumb {
+  grid-column: 9 / 13;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--yellow);
+}
+
+@media (max-width: 64rem) {
+  .entry__marker { grid-column: 1 / 2; max-width: 3rem; }
+  .entry__body   { grid-column: 2 / -1; }
+  .entry__thumb  { grid-column: 2 / -1; aspect-ratio: 16 / 9; }
+}
+
+/* --- Post ------------------------------------------------------ */
+
+.post { padding: clamp(2.5rem, 6vw, 4.5rem) 0 6rem; }
+
+.post__head { margin-bottom: clamp(2rem, 5vw, 3.5rem); row-gap: 1.5rem; }
+
+.post__title {
+  grid-column: 1 / 11;
+  font-size: var(--t-large);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.post__aside {
+  grid-column: 11 / 13;
+  align-self: end;
+}
+
+.post__number {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  aspect-ratio: 1;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  margin-bottom: 0.75rem;
+}
+
+.post__number[data-hue='red']    { background: var(--red);    color: var(--white); }
+.post__number[data-hue='blue']   { background: var(--blue);   color: var(--white); }
+.post__number[data-hue='yellow'] { background: var(--yellow); color: var(--black); }
+
+.post__standfirst {
+  grid-column: 1 / 8;
+  font-size: var(--t-lead);
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.post__figure { margin: 0 0 clamp(2rem, 5vw, 3.5rem); }
+
+.post__figure img {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  background: var(--yellow);
+}
+
+@media (max-width: 64rem) {
+  .post__title      { grid-column: 1 / -1; }
+  .post__aside      { grid-column: 1 / -1; }
+  .post__standfirst { grid-column: 1 / -1; }
+}
+
+/* --- Prose ----------------------------------------------------- */
+
+.prose {
+  grid-column: 3 / 10;
+  max-width: var(--measure);
+}
+
+@media (max-width: 64rem) {
+  .prose { grid-column: 1 / -1; }
+}
+
+.prose > * + * { margin-top: 1.4em; }
+
+.prose h2 {
+  font-size: var(--t-body);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  margin-top: 3em;
+  padding-top: 0.75em;
+  border-top: 3px solid var(--black);
+}
+
+.prose h3 {
+  font-size: var(--t-body);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-top: 2em;
+}
+
+.prose strong { font-weight: 700; }
+
+.prose blockquote {
+  margin-inline: 0;
+  padding: 0 0 0 1.25rem;
+  border-left: 6px solid var(--yellow);
+  font-size: var(--t-lead);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.prose ul, .prose ol { padding-left: 1.15rem; }
+.prose li + li { margin-top: 0.6em; }
+.prose li::marker { color: var(--red); font-weight: 700; }
+
+.prose a { text-decoration-thickness: 2px; }
+.prose a:hover { color: var(--red); }
+
+.prose code {
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.85em;
+  background: var(--yellow);
+  padding: 0.1em 0.3em;
+}
+
+.prose pre {
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: var(--t-small);
+  line-height: 1.5;
+  padding: 1.25rem;
+  overflow-x: auto;
+  border: 2px solid var(--black);
+}
+
+.prose pre code { background: none; padding: 0; }
+
+.prose hr { border: 0; border-top: 3px solid var(--black); margin: 3em 0; }
+
+.prose img { border: 2px solid var(--black); }
+
+/* --- Source link ----------------------------------------------- */
+
+.source {
+  grid-column: 3 / 10;
+  margin-top: 3rem;
+  border-top: 3px solid var(--black);
+  padding-top: 1rem;
+  max-width: var(--measure);
+}
+
+@media (max-width: 64rem) { .source { grid-column: 1 / -1; } }
+
+.source .label { margin-bottom: 0.4rem; color: var(--blue); }
+.source a { font-weight: 700; word-break: break-word; }
+
+/* --- Back ------------------------------------------------------ */
+
+.back {
+  display: inline-block;
+  margin-bottom: 2rem;
+  font-size: var(--t-label);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.back:hover { color: var(--red); }
+
+/* --- Footer ---------------------------------------------------- */
+
+.foot {
+  border-top: 3px solid var(--black);
+  padding: 1.25rem 0 3rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: var(--t-label);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.foot a { text-decoration: none; }
+.foot a:hover { color: var(--red); }
+
+/* --- Motion ----------------------------------------------------
+   One event: the colour band wipes across on load. Nothing else.
+   --------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .band i {
+    transform-origin: left;
+    animation: wipe 0.4s cubic-bezier(0.65, 0, 0.35, 1) backwards;
+  }
+  .band i:nth-child(1) { animation-delay: 0.05s; }
+  .band i:nth-child(2) { animation-delay: 0.15s; }
+  .band i:nth-child(3) { animation-delay: 0.25s; }
+}
+
+@keyframes wipe { from { scale: 0 1; } to { scale: 1 1; } }

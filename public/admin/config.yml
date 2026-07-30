@@ -1,0 +1,99 @@
+backend:
+  name: github
+  repo: YOUR-GITHUB-USER/theinteractivedesigner   # CHANGE ME
+  branch: main
+  base_url: https://tid-cms-auth.YOUR-SUBDOMAIN.workers.dev  # CHANGE ME
+  auth_endpoint: auth
+
+# Images land here in the repo...
+media_folder: public/images/uploads
+# ...and are referenced by this path in the built site.
+public_folder: /images/uploads
+
+publish_mode: simple
+site_url: https://theinteractivedesigner.co.uk   # CHANGE ME
+
+collections:
+  - name: posts
+    label: Posts
+    label_singular: Post
+    folder: src/content/posts
+    create: true
+    slug: '{{slug}}'   # URL comes from the headline, e.g. /hidden-in-plain-sight/
+    extension: md
+    format: frontmatter
+    summary: '{{title}}'
+    sortable_fields: [date, title]
+    view_filters:
+      - label: Drafts
+        field: draft
+        pattern: true
+
+    fields:
+      - label: Headline
+        name: title
+        widget: string
+        hint: Keep it under about 60 characters so it doesn't wrap awkwardly.
+
+      - label: Date
+        name: date
+        widget: datetime
+        format: 'YYYY-MM-DD'      # how it's stored — leave this alone
+        date_format: 'DD/MM/YYYY' # how you see it in the editor
+        time_format: false
+        picker_utc: false
+
+      - label: Standfirst
+        name: standfirst
+        widget: text
+        required: false
+        hint: One or two sentences. Shows on the archive, in search results, and as the LinkedIn preview.
+
+      - label: Feature image
+        name: image
+        widget: image
+        required: false
+        choose_url: false
+        media_library:
+          config:
+            max_file_size: 2000000
+
+      - label: Image description
+        name: imageAlt
+        widget: string
+        required: false
+        hint: What's in the picture. Needed for screen readers and helps search.
+
+      - label: Link
+        name: link
+        widget: string
+        required: false
+        pattern: ['^https?://', 'Must start with http:// or https://']
+        hint: Optional. Appears at the foot of the post.
+
+      - label: Link label
+        name: linkLabel
+        widget: string
+        required: false
+        default: Related
+        hint: The heading above the link, e.g. "Product" or "Source".
+
+      - label: Post to LinkedIn
+        name: linkedin
+        widget: boolean
+        default: false
+        hint: >-
+          Off by default. Tick this and the post joins the LinkedIn queue the
+          next time the site builds. Leave it off to publish to the site only.
+          You can tick it on an old post later and it will still go out.
+
+      - label: Draft
+        name: draft
+        widget: boolean
+        default: false
+        hint: Drafts are saved to the repo but left out of the site and the RSS feed.
+
+      - label: Body
+        name: body
+        widget: markdown
+        hint: Bold, italic, headings, lists, quotes and images. This is the whole post.

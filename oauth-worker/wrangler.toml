@@ -1,0 +1,7 @@
+name = "tid-cms-auth"
+main = "src/index.js"
+compatibility_date = "2026-01-01"
+
+# Secrets are NOT set here. Run these once after `wrangler login`:
+#   wrangler secret put GITHUB_CLIENT_ID
+#   wrangler secret put GITHUB_CLIENT_SECRET
