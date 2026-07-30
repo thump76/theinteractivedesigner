@@ -20,14 +20,14 @@ The font is Bedstead by Ben Harris, and it is properly free. Public domain, no a
 
 Every graphic on the site is text. The block shapes are Unicode sextants, which means there are no images anywhere on it. You can select the pictures with your cursor. This pleases me more than it should.
 
-No database and no CMS. A Cloudflare Worker serves the static files and proxies the RSS feeds for news, sport and weather, because the BBC will not talk to a browser directly. Each route caches at the edge on its own timer: five minutes for news, fifteen for weather, an hour for the TV guide. It costs nothing to run.
+No database and no CMS. The pages are static files. The JavaScript pulls everything else from a Cloudflare Worker that proxies the feeds, which is necessary because the BBC does not send CORS headers and a browser cannot fetch them directly. Each route caches at the edge on its own timer: five minutes for news, fifteen for weather, an hour for the TV guide. It costs nothing to run.
 
 The first version took a morning. The bugs took considerably longer. A global User-Agent string that fixed one feed and silently broke three others. Error responses caching at the edge, so a single bad fetch could haunt the site for an hour. A fix applied globally is a bug applied globally, apparently.
 
-There is a holidays page on 220, for the same reason I remember the flights.
+There is a holidays page on 220, for the same reason I remember the flights. It works through five deal feeds until one of them answers, then filters for departures from UK airports. If fewer than five survive the filter it gives up and shows you everything, which is how you end up looking at cheap flights out of Cleveland.
 
-Ceefax ran for 38 years and ended in 2012, when Northern Ireland switched off the analogue signal. Nobody replaced it.
+Ceefax ran for 38 years and ended at 23:32 on 23 October 2012, when Northern Ireland switched off the analogue signal. Nobody replaced it.
 
 Clacton votes on 13 August. The rest of the manifesto involves capping 99 Flakes at 99p and nationalising Adele, so I have gone for the achievable one.
 
-p100.uk
+p100.uk.
