@@ -1,27 +1,29 @@
 ---
-title: Type is not decoration
+title: Learn how to use Final Cut Pro keyboard shortcuts
 date: 2026-07-15
-standfirst: Most interface typography is a font choice followed by nothing. The choices that actually matter come after.
+standfirst: 'The first thing I built this way is on the App Store now: KeyCut, an iPad control surface for video editors. Tap a colour-coded key and it fires the real shortcut to your Mac over Wi-Fi.'
+image: /images/uploads/1783951495977.jpeg
+imageAlt: ''
+link: https://getkeycut.com
+linkLabel: Get Keycut – Learn how to use Final Cut Pro keyboard shortcuts
 linkedin: false
 draft: false
 ---
 
-Picking the typeface is the smallest decision you'll make about type, and it's the one that gets all the discussion.
+A year ago, if I wanted to build a product I'd have needed a developer. I'm a product designer with 25 years in tech & digital design. Normally I would work with a developer to bring my designs to life but this time, over the last few months I sat down and learned the tools myself. Not to become an engineer, just to stop being stuck.
 
-What people actually experience is the stuff nobody argues about in the review: the measure, the leading, the size relationships, and whether the hierarchy survives being squinted at from four feet away.
+What surprised me was how much you can run now for almost nothing:
 
-## Three things worth more than the font choice
+CloudKit for syncing across someone's devices. Free, no server.
+StoreKit for in-app purchases and subscriptions. Apple handles it.
+PassKit for Wallet passes, with no backend of my own.
+Supabase and Firebase for a database, push and logins without hiring anyone.
+Cloudflare for DNS, security and caching, mostly free.
 
-**A scale you can name.** Pick a ratio, generate five or six sizes, and use only those. The constraint is the point. If you can add an arbitrary size whenever something looks slightly off, you will, and by the third month there is no system left.
+Ten years ago most of that meant a web developer, a server bill and a monthly retainer. Now it's a weekend and a bit of reading.
 
-**A measure that fits the reading.** Somewhere around 60 to 75 characters per line for body text. Wider and the eye loses its place returning to the left margin. This is why a full-width paragraph on a desktop monitor feels exhausting for reasons people can't articulate.
+I did a short course (Code with Chris) to find my way around Xcode and work out which stack does what. And yes, I use Claude in Xcode to move faster. But you still have to understand what you're choosing and why. It's not just theory.
 
-**Leading that responds to size.** Large type needs proportionally tighter leading than small type. A headline at 1.5 line-height looks like it's falling apart. Body text at 1.1 looks like a ransom note. Setting one value globally and moving on is the single most common mistake I see.
+The first thing I built this way is on the App Store now: KeyCut, an iPad control surface for video editors. Tap a colour-coded key and it fires the real shortcut to your Mac over Wi-Fi.
 
-## The test
-
-Turn the design greyscale, then blur it until you can't read the words.
-
-The hierarchy should still be obvious — you should still know where to look first, second, third. If everything blurs into an even grey field, you don't have a hierarchy, you have a document where some things are slightly bigger than others.
-
-That test takes ten seconds and it has never once failed to find something.
+Designed and built by one person, on this exact stack. There's more coming. I'll share each one as I go. If you're a designer who's been waiting on someone else to build your ideas, I don't think you have to any more.
