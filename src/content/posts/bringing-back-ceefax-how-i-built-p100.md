@@ -6,7 +6,7 @@ image: /images/uploads/Screenshot 2026-07-30 at 3.12.34 pm.png
 imageAlt: Internet TV https://p100.uk
 link: https://p100.uk
 linkLabel: P100 - Ceefax reborn
-linkedin: false
+linkedin: true
 draft: false
 ---
 
