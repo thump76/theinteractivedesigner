@@ -1,7 +1,7 @@
 ---
-title: What's it all about Alfie?
-date: 2026-07-22
-standfirst: If the build doesn't match the file, the file was never finished. A design that can't survive contact with a browser is a picture of a design.
+title: App clips help, but remember what works
+date: 2026-07-24
+standfirst: There's a sticker on the back of every bag of VENDUM Coffee. Scan the QR code when the bag runs out and you've reordered with Apple Pay in two taps. No app to install, no account, no password.
 image: /images/uploads/IMG_2796.jpeg
 imageAlt: QR code on a coffee bag
 link: https://vendum.coffee
@@ -10,23 +10,18 @@ linkedin: false
 draft: false
 ---
 
-There's a particular kind of design file that looks immaculate and builds badly. Every corner aligned, every colour named, and not one decision made about what happens at 380 pixels wide.
+There's a sticker on the back of every bag of [**VENDUM Coffee**](https://www.linkedin.com/company/vendum-coffee/). Scan the QR code when the bag runs out and you've reordered with Apple Pay in two taps. No app to install, no account, no password.
 
-I used to make those. They review well. Everyone nods. Then a developer opens it and starts making design decisions on your behalf, because you left a hundred of them unmade and someone has to.
+It's an App Clip: a small slice of the Vendum Coffee app that downloads instantly and disappears afterwards. It works at the market stall too, for anyone who'd rather tap than queue.
 
-## What a finished file actually contains
+It's the most technically interesting thing I've built for the business. What it actually does is catch someone at the exact moment they notice the bag is empty, before that thought turns into a note on a shopping list nobody ever looks at again.
 
-Not more screens. More answers.
+It doesn't win a single new customer, though. It only makes life easier for the people the markets and the leaflets already brought in.
 
-- **What breaks first.** Every layout has an order in which it falls apart. If you haven't chosen that order, the browser will.
-- **What the empty state says.** Not "no results found" — the actual sentence, written by you, in the product's voice.
-- **Which type sizes exist.** Not the ones you happened to use. The set. If your file has fourteen sizes, you have no scale, you have a mood board.
-- **What the focus state looks like.** Someone is going to tab through this.
+Running a young business means constantly deciding where the hours go. AI has been genuinely useful for the infrastructure: the app itself, automations in Make, the plumbing I'd otherwise be doing by hand.
 
-None of that is glamorous and all of it gets decided by default if you skip it.
+But the things that actually bring people to [**VENDUM Coffee**](https://www.linkedin.com/company/vendum-coffee/) are stubbornly analogue. Standing behind a table at Woolwich Producers Market and Plumstead Make Merry. Talking to people locally. Getting to know the cafes and independents nearby. Printing cards and posting them through letterboxes on a Friday afternoon.
 
-## The uncomfortable part
+When a business is new, marketing and sales are better done face to face.
 
-The reason these gaps persist is that closing them requires knowing roughly how the thing gets built. Not writing production code — just enough to know that `gap` and `margin` behave differently when a row wraps, and that your beautiful three-column grid has an opinion about what happens when there are four items.
-
-Designers who've written CSS make fewer of these files. Not because they're better designers. Because they've been on the other end of the handoff and it was them who had to guess.
+So, the thing I keep relearning: don't get bogged down in what you can do. Work out what actually works, and do more of that.
