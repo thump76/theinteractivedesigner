@@ -18,4 +18,9 @@ Annoyingly I also had my customers data on there too. But thankfully at the time
 
 Also in a years time I would have even more customers to migrate. I needed a new solution. I knew Stripe did subscriptions and an excellent embeddable pricing table. However Stripe did not connect to a fulfilment partner easily for subscriptions except with another plugin. Support for plugins can be flakey and sometimes they get shelved. 
 
-I then found Make.com. I knew it integrated with just about all the big
+I then found Make.com. It connected with Stripe, Wordpress, Woocommerce, Google sheets. I had a plan. The learning curve with Make for me was steep as I didn’t know what some of the concepts were especially JSON and parsing JSON to get the data. It’s easy when you know how. 
+
+The Make Scenario is:
+
+1. Stripe module watches for a new invoice to be created
+2.
