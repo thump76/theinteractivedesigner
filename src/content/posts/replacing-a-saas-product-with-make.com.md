@@ -2,7 +2,7 @@
 title: Replacing a Saas product with Make.com & Stripe
 date: 2026-08-24
 standfirst: My fulfilment platform switched off the API I was paying for, then offered to sell it back at more than double the price. Here's what I built instead with Stripe, Make.com and WooCommerce.
-image: /images/uploads/ScreenshotMake copy.jpg
+image: /images/uploads/ScreenshotMake.jpg
 imageAlt: Make.com coffee subscription with Stripe
 link: https://vendum.coffee/coffee-morning-subscription/
 linkLabel: Coffee bean subscription at vendum.coffee
