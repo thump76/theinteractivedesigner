@@ -3,7 +3,7 @@ title: Learn how to use Final Cut Pro keyboard shortcuts
 date: 2026-07-15
 standfirst: 'The first thing I built this way is on the App Store now: KeyCut, an iPad control surface for video editors. Tap a colour-coded key and it fires the real shortcut to your Mac over Wi-Fi.'
 image: /images/uploads/1783951495977.jpeg
-imageAlt: ''
+imageAlt: Final Cut Pro keyboard shortcuts
 link: https://getkeycut.com
 linkLabel: Get Keycut – Learn how to use Final Cut Pro keyboard shortcuts
 linkedin: false
