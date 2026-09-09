@@ -26,7 +26,7 @@ The easy version of an MP app is a gotcha. Expenses, attendance leagues, who tur
 
 I wanted to show what MPs actually do, presented without editorial framing. That meant being honest about the limits of the data too. An MP with a low number of sitting days might also be a practising doctor, and the raw number tells you nothing about that on its own. So the apps present the parliamentary record and let people read it in context, rather than ranking anyone.
 
-Neutral and non-partisan, with no spin. That principle shaped every screen.
+Neutral and non-partisan, with no spin. 
 
 ## How do I find out who my MP is?
 
@@ -41,11 +41,11 @@ From there you get a full MP profile built entirely from Parliament's own data:
 - the select committees they sit on
 - the roles they hold and their election results
 
-Everything links back to the source on parliament.uk, so you can check it yourself.
+Everything links back to the source on parliament.uk, so you can read in more detail.
 
 It is written in SwiftUI with no third party packages, and it talks directly to the Parliament Members, Votes, Hansard and Written Questions APIs, with postcodes.io handling the postcode lookup.
 
-Download Who Is My MP? on the App Store: https://apps.apple.com/gb/app/id6801525476 Find out more at https://whoismymp.uk
+Download Who Is My MP? on the App Store: https://apps.apple.com/gb/app/id6801525476 Find out more at whoismymp.uk https://whoismymp.uk
 
 ## Is there an app for the House of Lords?
 
@@ -57,7 +57,7 @@ So The Lords is browse-first. Instead of a search box and a blank screen, you st
 
 It is the app you open when you think "who in the Lords actually knows about this?"
 
-Download The Lords on the App Store: https://apps.apple.com/gb/app/the-lords/id6801590675 Find out more at https://thelords.app
+Download The Lords on the App Store: https://apps.apple.com/gb/app/the-lords/id6801590675 Find out more at thelords.app https://thelords.app
 
 ## What the UK Parliament APIs taught me
 
@@ -65,7 +65,7 @@ The data is excellent and the documentation is patchy, which is a familiar combi
 
 - The Commons votes API silently caps results at 25 per request, so pagination is not optional.
 - Constituency names need normalising before search (ampersands, "and", punctuation) or you get nothing back.
-- In rural areas a postcode's centroid can sit a long way from where someone is standing, so location lookups need a widening fallback rather than a single request.
+- In rural areas a postcode can sit a long way from where someone is standing, so location lookups need a widening fallback rather than a single request.
 - Hansard search and Hansard overview endpoints use different parameter conventions for the same fields.
 
 None of this is a complaint. It is exactly the kind of thing that only surfaces when you build something real.
@@ -74,6 +74,8 @@ None of this is a complaint. It is exactly the kind of thing that only surfaces 
 
 Both apps are free and live on the App Store now.
 
-Who Is My MP? — find your MP by postcode: https://whoismymp.uk The Lords — find peers by interest: https://thelords.app
+Who Is My MP? :  find your MP by postcode: https://whoismymp.uk 
+
+The Lords : find peers by interest: https://thelords.app
 
 If you work in politics, journalism, policy or civic tech, I would like to hear what you make of them, and what you would want a UK Parliament app to do next.
