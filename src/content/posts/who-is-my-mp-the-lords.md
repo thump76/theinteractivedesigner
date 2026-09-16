@@ -1,13 +1,13 @@
 ---
-title: Who is my MP? & The Lords
-date: 2026-09-09
+title: Who is my MP? and The Lords
+date: 2026-09-16
 standfirst: "Fifteen years after Dod's Parliamentary Communications, I went back to Westminster's data and built the two apps I wished had existed: one to find your MP, one to find peers by their specialisms."
-image: ''
+image: /images/uploads/TheLords-linkedin.png
 imageAlt: Who is my MP? & The House of Lords
 link: https://apps.apple.com/us/app/who-is-my-mp/id6801525476
 linkLabel: Who is my MP?
-linkedin: false
-draft: true
+linkedin: true
+draft: false
 ---
 
 Who is my MP? It is one of the most searched questions about UK politics, and the answer has always been sitting in Parliament's own open data. This year I built two free iOS apps on top of it: Who Is My MP?, which finds your MP by postcode, and The Lords, which helps you find members of the House of Lords by their specialist interests.
