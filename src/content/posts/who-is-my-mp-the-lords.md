@@ -1,5 +1,5 @@
 ---
-title: Who is my MP? and The Lords
+title: Who is my MP? and The Lords, two free apps from Parliament's own data
 date: 2026-09-16
 standfirst: "Fifteen years after Dod's Parliamentary Communications, I went back to Westminster's data and built the two apps I wished had existed: one to find your MP, one to find peers by their specialisms."
 image: /images/uploads/TheLords-linkedin.png
