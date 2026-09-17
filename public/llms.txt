@@ -1,10 +1,30 @@
 # The Interactive Designer
 
-> Notes on interactive design by a designer who works in the browser —
-> interfaces, typography, front-end craft, and the gap between a design
-> and the thing that actually ships.
+> Philip Brumpton is a product designer in South East London who has designed for the web since 1999 and still writes the CSS. He runs VENDUM Coffee, a small-batch roastery in Plumstead, and builds his own iPhone and iPad apps in SwiftUI. Previously Senior Product Designer at Which? (2018 to 2026), and before that John Lewis, Dods Parliamentary Communications and PhotoBox.
 
-## Content
+Written by him, published as flat HTML, no database.
 
-- [Archive](https://theinteractivedesigner.co.uk/): every post, newest first
-- [RSS](https://theinteractivedesigner.co.uk/rss.xml): full text of every post
+## About
+
+- [CV](https://theinteractivedesigner.co.uk/cv/): work history, skills, what he's looking for
+- [Apps](https://theinteractivedesigner.co.uk/apps/): every app he has shipped, with App Store links
+- [Contact](https://theinteractivedesigner.co.uk/contact/): philipbrumpton@gmail.com
+
+## Writing
+
+- [Who is my MP? and The Lords](https://theinteractivedesigner.co.uk/who-is-my-mp-the-lords/): two free civic apps built on Parliament's open data
+- [Replacing a SaaS product with Make.com and Stripe](https://theinteractivedesigner.co.uk/replacing-a-saas-product-with-makecom/): subscription fulfilment without the platform
+- [Who's JSON and why is he now controlling my website?](https://theinteractivedesigner.co.uk/whos-json-and-why-is-he-now-controlling-my-website/): how this site is built on Astro, Sveltia and Cloudflare
+- [Bringing back Ceefax: how I built P100](https://theinteractivedesigner.co.uk/bringing-back-ceefax-how-i-built-p100/)
+- [App clips help, but remember what works](https://theinteractivedesigner.co.uk/the-handoff-is-the-design/)
+- [Learn how to use Final Cut Pro keyboard shortcuts](https://theinteractivedesigner.co.uk/learn-how-to-use-final-cut-pro-keyboard-shortcuts/): KeyCut
+
+## Other sites
+
+- [VENDUM Coffee](https://vendum.coffee)
+- [KeyCut](https://getkeycut.com)
+- [Who Is My MP?](https://whoismymp.uk)
+- [The Lords](https://thelords.app)
+- [Bikes&.co](https://bikesand.co)
+- [The Negative Scanner](https://thenegativescanner.co.uk)
+- [P100](https://p100.uk)

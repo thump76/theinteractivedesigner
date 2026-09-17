@@ -1,0 +1,220 @@
+---
+// Change this import to whatever your base layout is called.
+// PersonSchema (in the layout head) already defines #philip. This page
+// wraps it in a ProfilePage and adds the work history, so Google and the
+// AI crawlers treat /cv/ as the canonical "who is this person" page.
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Philip Brumpton, product designer. CV';
+const description =
+  'Product designer in South East London, designing for the web since 1999. Founder of VENDUM Coffee. Previously Which?, John Lewis, Dods and PhotoBox. Ships his own iPhone apps in SwiftUI.';
+
+const site = 'https://theinteractivedesigner.co.uk';
+const email = 'philipbrumpton@gmail.com';
+
+const roles = [
+  {
+    org: 'VENDUM Coffee',
+    url: 'https://vendum.coffee',
+    title: 'Founder',
+    start: '2026-05',
+    end: null,
+    body: `A small-batch roastery in Plumstead. I roast the coffee, sell it at markets in Woolwich and Plumstead, supply cafes and wholesale, and run the online shop. I built the lot: the WooCommerce store, the subscriptions on Stripe with Make doing the plumbing, the iPhone app and the App Clip on the back of every bag. It's the first business I've run rather than designed for, and it has taught me more about customers than any research programme I've sat in on.`,
+  },
+  {
+    org: 'Which?',
+    url: 'https://www.which.co.uk',
+    title: 'Senior Product Designer',
+    start: '2018-11',
+    end: '2026-05',
+    body: `Seven and a half years in a squad working on subscription, member experience and the article platform. The bit I'm proudest of is the Subscribe to Which? page: a full redesign, research-led and mobile-first, that lifted conversion by 14%. I also worked on the article template, the design system, accessibility and how the squads actually worked day to day. The role was as much about framing problems and presenting to senior people as it was about Figma.`,
+  },
+  {
+    org: 'John Lewis',
+    url: 'https://www.johnlewis.com',
+    title: 'Senior Web Designer, then Senior Digital Designer',
+    start: '2011-01',
+    end: '2017',
+    body: `Led UX and design on the replatforming of johnlewis.com: templates, information architecture, user journeys, and the awkward bit where it all had to fit ATG and CQ5. Shipped John Lewis's first shoppable app on iOS and Android in three weeks before Christmas. Set up a create-once-publish-everywhere workflow for the Edition magazine so it landed on iPad, iPhone, Kindle Fire and Android on the same day. Later ran special projects, mentored the junior designers and signed off the work.`,
+  },
+  {
+    org: 'Dods Parliamentary Communications',
+    url: null,
+    title: 'Lead Designer',
+    start: '2009-07',
+    end: '2010-12',
+    body: `Ran a team of three print and web designers. Pulled a dozen event and brand sites into one consistent look. It was my first time working with Westminster's material, MPs and peers and select committees rather than baskets and checkouts, and it's the reason I went back and built Who Is My MP? and The Lords fifteen years later.`,
+  },
+  {
+    org: 'Steak Media',
+    url: null,
+    title: 'Freelance Designer',
+    start: '2008',
+    end: '2009',
+    body: `Freelance for a digital agency across London and New York, where I was living at the time, before moving back.`,
+  },
+  {
+    org: 'PhotoBox',
+    url: 'https://www.photobox.co.uk',
+    title: 'Lead Designer',
+    start: '2006-11',
+    end: '2008-06',
+    body: `Managed and art directed three designers across the e-commerce platform, digital campaigns and print. Keeping a brand consistent when it's printed on mugs as well as rendered in browsers.`,
+  },
+  {
+    org: 'Freelance',
+    url: null,
+    title: 'Designer',
+    start: '2001',
+    end: '2006',
+    body: `The dot-com crash took the staff jobs away, so I went freelance: Expedia, Phaidon and Wallpaper, M&C Saatchi, Ogilvy, Dare, WGSN, Proximity, JWT, LBi, Arcadia. Mostly web, some print, and a lot of learning how agencies and in-house teams differ.`,
+  },
+  {
+    org: 'eyestorm.com',
+    url: null,
+    title: 'Junior Web Designer',
+    start: '1999-04',
+    end: '2001-05',
+    body: `An early online art retailer selling limited editions by Damien Hirst, Marc Quinn, Gavin Turk, Grayson Perry and Magnum Photos, with the Saatchi Gallery. My first web job. Tables for layout, Photoshop for everything, and the moment I decided this was what I did.`,
+  },
+];
+
+const fmt = (d) => {
+  if (!d) return 'now';
+  const [y, m] = d.split('-');
+  if (!m) return y;
+  return new Date(`${y}-${m}-01`).toLocaleDateString('en-GB', { month: 'short', year: 'numeric' });
+};
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  '@id': `${site}/cv/#page`,
+  url: `${site}/cv/`,
+  name: title,
+  description,
+  dateModified: new Date().toISOString().slice(0, 10),
+  inLanguage: 'en-GB',
+  isPartOf: { '@id': `${site}/#website` },
+  mainEntity: {
+    '@type': 'Person',
+    '@id': `${site}/#philip`,
+    name: 'Philip Brumpton',
+    hasOccupation: [
+      {
+        '@type': 'Occupation',
+        name: 'Product Designer',
+        occupationLocation: { '@type': 'City', name: 'London' },
+        skills:
+          'Product design, interaction design, design systems, accessibility, user research, Figma, HTML, CSS, React, SwiftUI, SEO',
+      },
+      {
+        '@type': 'Occupation',
+        name: 'Founder',
+        description: 'Founder of VENDUM Coffee, a small-batch coffee roastery in Plumstead, London',
+      },
+    ],
+    worksFor: [
+      { '@type': 'Organization', name: 'VENDUM Coffee', url: 'https://vendum.coffee' },
+      { '@id': `${site}/#svpply` },
+    ],
+    alumniOf: [
+      { '@type': 'CollegeOrUniversity', name: 'Northumbria University' },
+      ...roles
+        .filter((r) => r.end && !['Freelance', 'Steak Media'].includes(r.org))
+        .map((r) => ({ '@type': 'Organization', name: r.org, ...(r.url ? { url: r.url } : {}) })),
+    ],
+  },
+};
+---
+
+<Layout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
+
+  <article class="cv h-card">
+    <header>
+      <h1><span class="p-name">Philip Brumpton</span></h1>
+      <p class="standfirst">
+        <span class="p-job-title">Product designer</span>{' '}in{' '}<span class="p-locality"
+        >South East London</span>. I've been designing for the web since 1999 and I
+        still write the CSS. These days I run{' '}<a class="p-org" href="https://vendum.coffee"
+        >VENDUM Coffee</a>, a small-batch roastery in Plumstead, and take on contract
+        product design work alongside it.
+      </p>
+      <a class="u-url" href={site} hidden>theinteractivedesigner.co.uk</a>
+      <a class="u-email" href={`mailto:${email}`} hidden>{email}</a>
+    </header>
+
+    <section id="about">
+      <h2>What I do</h2>
+      <p>
+        I design products and then I build them. Not to become an engineer, just so
+        nothing sits waiting for a developer. I work in Figma, then in HTML, CSS and
+        React on the web, and in SwiftUI on iPhone and iPad. I've shipped a handful
+        of apps on my own, which you can find on the{' '}<a href="/apps/">apps page</a>.
+      </p>
+      <p>
+        In a team I'm the person who frames the problem, runs the research, does the
+        design, and presents it to the people who need to say yes. I've done that
+        embedded in squads at Which? and John Lewis for the best part of fifteen
+        years, on replatforms, design systems, subscription pages and accessibility.
+        I know the vocabulary, OKRs and all, but I'd rather talk about what shipped.
+      </p>
+      <p>
+        I'm looking for contract or part-time product design work, ideally hybrid in
+        London, that leaves room for the roastery.
+      </p>
+    </section>
+
+    <section id="work">
+      <h2>Work</h2>
+      {roles.map((r) => (
+        <article class="role">
+          <h3>
+            {r.url ? <a href={r.url} rel="noopener">{r.org}</a> : r.org}
+          </h3>
+          <p class="role-meta">
+            <span class="role-title">{r.title}</span>
+            <span class="role-dates">
+              <time datetime={r.start}>{fmt(r.start)}</time>{' '}to{' '}{
+                r.end ? <time datetime={r.end}>{fmt(r.end)}</time> : 'now'
+              }
+            </span>
+          </p>
+          <p>{r.body}</p>
+        </article>
+      ))}
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <dl>
+        <dt>Design</dt>
+        <dd>Product and interaction design, design systems, responsive templates, information architecture, typography, print, accessibility to WCAG</dd>
+        <dt>Research</dt>
+        <dd>Usability testing (usertesting.com), analytics (Google Analytics, Contentsquare), Lighthouse, SEO</dd>
+        <dt>Build</dt>
+        <dd>HTML, CSS, React, Tailwind, Astro. SwiftUI, StoreKit, CloudKit, App Clips. WooCommerce, Stripe, Make, Cloudflare</dd>
+        <dt>Tools</dt>
+        <dd>Figma, Miro, Jira, ProdPad, Xcode, Adobe Creative Cloud</dd>
+      </dl>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <p>BEng Building Services Engineering, Northumbria University, Newcastle.</p>
+      <p>HTML and CSS at Hoxton Bibliotech, and most of the rest by doing it.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Get in touch</h2>
+      <p>
+        <a href={`mailto:${email}`}>{email}</a>. I'm also on{' '}<a
+          href="https://www.linkedin.com/in/philipbrumpton" rel="me noopener">LinkedIn</a>{' '}and
+        the older case studies are on{' '}<a
+          href="https://www.behance.net/philipbrumpton" rel="me noopener">Behance</a>.
+      </p>
+      <p><a href="/cv/philip-brumpton-cv.pdf" type="application/pdf">Download as PDF</a></p>
+    </section>
+  </article>
+</Layout>

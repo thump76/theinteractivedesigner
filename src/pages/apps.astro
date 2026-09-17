@@ -1,0 +1,72 @@
+---
+// Change this import if your base layout is named differently.
+import Layout from '../layouts/Base.astro';
+import apps from '../data/apps.json';
+
+const title = 'Apps';
+const description =
+  "iPhone and iPad apps by Philip Brumpton: KeyCut for Final Cut Pro editors, Who Is My MP? and The Lords for Parliament's public record, VENDUM Coffee and Bikes&.co.";
+
+const site = 'https://theinteractivedesigner.co.uk';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Apps by Philip Brumpton',
+  itemListElement: apps.map((app, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'SoftwareApplication',
+      '@id': `${app.url}/#app`,
+      name: app.name,
+      description: app.description,
+      url: app.url,
+      installUrl: app.appStoreUrl,
+      applicationCategory: app.category,
+      operatingSystem: app.os,
+      image: `${site}${app.icon}`,
+      offers: {
+        '@type': 'Offer',
+        price: app.price,
+        priceCurrency: 'GBP',
+      },
+      author: { '@id': `${site}/#philip` },
+      publisher: { '@id': `${site}/#svpply` },
+    },
+  })),
+};
+---
+
+<Layout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
+
+  <section class="apps">
+    <h1>Apps</h1>
+    <p class="standfirst">
+      Native, small, and built for one job each. Written in SwiftUI by a designer who
+      wanted them to exist. Each one has its own site with the detail; this is the list.
+    </p>
+
+    <ul class="app-list">
+      {apps.map((app) => (
+        <li class="app" id={app.slug}>
+          <a class="app-icon" href={app.url} aria-hidden="true" tabindex="-1">
+            <img src={app.icon} alt="" width="256" height="256" loading="lazy" />
+          </a>
+          <div class="app-body">
+            <h2><a href={app.url}>{app.name}</a></h2>
+            <p class="tagline">{app.tagline}</p>
+            <p class="app-desc">{app.description}</p>
+            <p class="meta">{app.platforms}. {app.priceNote}.</p>
+            <p class="links">
+              <a class="store" href={app.appStoreUrl} rel="noopener">App Store</a>
+              <a href={app.url} rel="noopener">{app.url.replace('https://', '')}</a>
+              {app.post && <a href={app.post}>Read the story</a>}
+            </p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Layout>

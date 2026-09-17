@@ -1,0 +1,43 @@
+---
+// Replace your current footer with this, or merge the <nav> into it.
+// The same list, as plain HTML, goes in the footer of every other site
+// (getkeycut.com, whoismymp.uk, thelords.app, vendum.coffee, bikesand.co,
+// thenegativescanner.co.uk, p100.uk) with theinteractivedesigner.co.uk
+// added and the current site dropped. That reciprocal ring is what tells
+// search engines these are one entity.
+
+const year = new Date().getFullYear();
+
+const sites = [
+  { name: 'KeyCut', url: 'https://getkeycut.com' },
+  { name: 'Who Is My MP?', url: 'https://whoismymp.uk' },
+  { name: 'The Lords', url: 'https://thelords.app' },
+  { name: 'VENDUM Coffee', url: 'https://vendum.coffee' },
+  { name: 'Bikes&.co', url: 'https://bikesand.co' },
+  { name: 'The Negative Scanner', url: 'https://thenegativescanner.co.uk' },
+  { name: 'P100', url: 'https://p100.uk' },
+];
+---
+
+<footer class="site-footer">
+  <nav aria-label="Site">
+    <a href="/">Archive</a>
+    <a href="/apps/">Apps</a>
+    <a href="/contact/">Contact</a>
+    <a href="/rss.xml">RSS</a>
+  </nav>
+
+  <nav aria-label="Other sites by Philip Brumpton">
+    <p>Also by me</p>
+    <ul>
+      {sites.map((s) => (
+        <li><a href={s.url} rel="me noopener">{s.name}</a></li>
+      ))}
+    </ul>
+  </nav>
+
+  <p class="colophon">
+    © {year} The Interactive Designer. Philip Brumpton, SVPPLY&amp;.CO. Flat files, no database.
+    <a href="https://www.linkedin.com/in/philipbrumpton" rel="me noopener">LinkedIn</a>
+  </p>
+</footer>

@@ -1,0 +1,10 @@
+---
+// Drop <Byline date={post.data.date} /> under the title of every post.
+// The visible link to /cv/ plus author @id in the Article schema is what
+// ties each post to you as an author in Google's eyes.
+const { date } = Astro.props;
+---
+<p class="byline">
+  Written by <a href="/cv/" rel="author">Philip Brumpton</a>
+  {date && <>, <time datetime={date.toISOString().slice(0, 10)}>{date.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' })}</time></>}
+</p>

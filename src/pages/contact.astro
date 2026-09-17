@@ -1,0 +1,35 @@
+---
+// Change this import to whatever your base layout is called.
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Contact';
+const description =
+  'Get in touch with Philip Brumpton, senior product designer in South East London, for contract design work, app collaborations or anything on this site.';
+const email = 'philipbrumpton@gmail.com';
+---
+
+<Layout title={title} description={description}>
+  <section class="contact">
+    <h1>Contact</h1>
+    <p class="standfirst">
+      Email is the best way. I read everything and reply to most of it.
+    </p>
+
+    <p class="email">
+      <a href={`mailto:${email}`}>{email}</a>
+    </p>
+
+    <p>
+      I take on contract and part-time product design work, usually with a front end
+      built alongside it. I am also happy to hear from anyone using the apps, or
+      anyone who has read something here and wants to argue with it.
+    </p>
+
+    <p>Based in Plumstead, South East London. UK time.</p>
+
+    <p class="elsewhere">
+      Elsewhere: <a href="https://www.linkedin.com/in/philipbrumpton" rel="me noopener"
+      >LinkedIn</a>,{' '}<a href="/rss.xml">RSS</a>.
+    </p>
+  </section>
+</Layout>

@@ -1,0 +1,91 @@
+---
+// Drop <PersonSchema /> into the <head> of your base layout so it's on every page.
+// The @id values (#philip, #svpply) are what apps.astro and your Article schema
+// should point at, so keep them stable.
+
+const site = 'https://theinteractivedesigner.co.uk';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': `${site}/#philip`,
+      name: 'Philip Brumpton',
+      givenName: 'Philip',
+      familyName: 'Brumpton',
+      jobTitle: 'Product Designer and Founder, VENDUM Coffee',
+      description:
+        'Product designer in South East London, designing for the web since 1999. Founder of VENDUM Coffee, a small-batch roastery in Plumstead. Designs and builds interfaces, still writes the CSS, and ships native iPhone and iPad apps in SwiftUI.',
+      mainEntityOfPage: `${site}/cv/`,
+      url: site,
+      email: 'mailto:philipbrumpton@gmail.com',
+      homeLocation: {
+        '@type': 'Place',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'London',
+          addressRegion: 'Greater London',
+          addressCountry: 'GB',
+        },
+      },
+      knowsAbout: [
+        'Product design',
+        'Interaction design',
+        'Front-end development',
+        'SwiftUI',
+        'Typography',
+        'Accessibility',
+      ],
+      worksFor: { '@id': `${site}/#svpply` },
+      sameAs: [
+        'https://www.linkedin.com/in/philipbrumpton',
+        'https://www.behance.net/philipbrumpton',
+        'https://getkeycut.com',
+        'https://whoismymp.uk',
+        'https://thelords.app',
+        'https://vendum.coffee',
+        'https://bikesand.co',
+        'https://thenegativescanner.co.uk',
+        'https://p100.uk',
+      ],
+    },
+    {
+      '@type': 'Organization',
+      '@id': `${site}/#svpply`,
+      name: 'SVPPLY&.CO',
+      legalName: 'SVPPLY&.CO LIMITED',
+      url: site,
+      founder: { '@id': `${site}/#philip` },
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '3rd Floor Great Titchfield House, 14-18 Great Titchfield Street',
+        addressLocality: 'London',
+        postalCode: 'W1W 8BD',
+        addressCountry: 'GB',
+      },
+      sameAs: [
+        'https://getkeycut.com',
+        'https://whoismymp.uk',
+        'https://thelords.app',
+        'https://vendum.coffee',
+        'https://bikesand.co',
+        'https://thenegativescanner.co.uk',
+        'https://p100.uk',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${site}/#website`,
+      url: site,
+      name: 'The Interactive Designer',
+      description: 'Notes on interactive design, interfaces, and the craft of building them.',
+      author: { '@id': `${site}/#philip` },
+      publisher: { '@id': `${site}/#svpply` },
+      inLanguage: 'en-GB',
+    },
+  ],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />

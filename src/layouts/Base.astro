@@ -1,5 +1,8 @@
 ---
 import '../styles/global.css';
+import '../styles/pages.css';
+import PersonSchema from '../components/PersonSchema.astro';
+import PersonSchema from '../components/PersonSchema.astro';
 
 const {
   title,
@@ -34,6 +37,8 @@ const year = new Date().getFullYear();
 
     <link rel="alternate" type="application/rss+xml" title="The Interactive Designer" href="/rss.xml" />
     {/* No webfonts. Helvetica is already on the device, or Arial is. */}
+    <PersonSchema />
+    <PersonSchema />
   </head>
 
   <body>
@@ -42,6 +47,9 @@ const year = new Date().getFullYear();
         <a class="wordmark" href="/">The Interactive <mark>Designer</mark></a>
         <nav>
           <a href="/">Archive</a>
+          <a href="/apps/">Apps</a>
+          <a href="/cv/">CV</a>
+          <a href="/contact/">Contact</a>
           <a href="/rss.xml">RSS</a>
         </nav>
       </header>

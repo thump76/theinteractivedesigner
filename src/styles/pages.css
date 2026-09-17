@@ -1,0 +1,248 @@
+/* ---------------------------------------------------------------
+   Pages: CV, Apps, Contact
+   Append to src/styles/global.css
+   --------------------------------------------------------------- */
+
+/* Column width. 900px is the outer measure; prose sits narrower
+   inside it so line length stays readable. */
+.cv,
+.apps,
+.contact {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.cv p,
+.contact p,
+.apps .standfirst {
+  max-width: 68ch;
+}
+
+/* --- shared headings ------------------------------------------- */
+
+.cv h1,
+.apps h1,
+.contact h1 {
+  font-size: clamp(2.4rem, 7vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 0.98;
+  margin: 0 0 1.25rem;
+}
+
+.cv .standfirst,
+.apps .standfirst,
+.contact .standfirst {
+  font-size: 1.2rem;
+  line-height: 1.45;
+  margin: 0 0 2.5rem;
+}
+
+.cv h2,
+.apps h2,
+.contact h2 {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #E30613;
+  margin: 3rem 0 0;
+  padding-bottom: 0.4rem;
+  border-bottom: 3px solid #E30613;
+}
+
+.cv section > h2 + * {
+  margin-top: 1.25rem;
+}
+
+/* --- CV: work history ------------------------------------------ */
+
+.cv .role {
+  border-top: 1px solid currentColor;
+  border-color: color-mix(in srgb, currentColor 22%, transparent);
+  padding: 1.1rem 0 1.3rem;
+}
+
+.cv .role h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.cv .role h3 a {
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 30%, transparent);
+}
+
+.cv .role-meta {
+  margin: 0.15rem 0 0.6rem;
+  font-size: 0.875rem;
+  opacity: 0.7;
+}
+
+.cv .role-title {
+  font-weight: 500;
+}
+
+.cv .role-title::after {
+  content: ",";
+}
+
+.cv .role-dates {
+  white-space: nowrap;
+}
+
+.cv .role p:last-child {
+  margin: 0;
+}
+
+/* --- CV: skills ------------------------------------------------ */
+
+.cv dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 0.15rem 1.5rem;
+}
+
+.cv dt {
+  font-weight: 700;
+  border-top: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+  padding-top: 0.75rem;
+}
+
+.cv dd {
+  margin: 0;
+  border-top: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+  padding-top: 0.75rem;
+  padding-bottom: 0.5rem;
+}
+
+@media (max-width: 34em) {
+  .cv dl {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .cv dd {
+    border-top: 0;
+    padding-top: 0.1rem;
+  }
+}
+
+/* --- Apps ------------------------------------------------------ */
+
+.apps .app-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.apps .app {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+  border-top: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+  padding: 1.75rem 0 1.9rem;
+}
+
+/* The icons ship with Apple's rounded mask already in the alpha
+   channel, so no border-radius here: it would clip the superellipse
+   a second time and flatten the corners. */
+.apps .app-icon img {
+  width: 96px;
+  height: 96px;
+  display: block;
+}
+
+.apps .app h2 {
+  font-size: 1.375rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: inherit;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.apps .app h2 a {
+  text-decoration: none;
+}
+
+.apps .app h2 a:hover {
+  text-decoration: underline;
+}
+
+.apps .tagline {
+  font-size: 1.0625rem;
+  margin: 0.15rem 0 0.7rem;
+}
+
+.apps .app-desc {
+  margin: 0 0 0.7rem;
+}
+
+.apps .meta {
+  font-size: 0.875rem;
+  opacity: 0.7;
+  margin: 0;
+}
+
+.apps .links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+  margin: 0.9rem 0 0;
+  font-size: 0.9375rem;
+}
+
+.apps .links .store {
+  font-weight: 700;
+}
+
+@media (max-width: 34em) {
+  .apps .app {
+    grid-template-columns: 64px 1fr;
+    gap: 1rem;
+  }
+  .apps .app-icon img {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+/* --- Contact --------------------------------------------------- */
+
+.contact .email {
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 2rem;
+}
+
+.contact .email a {
+  text-decoration: none;
+  border-bottom: 3px solid #E30613;
+}
+
+.contact .elsewhere {
+  margin-top: 2.5rem;
+  font-size: 0.9375rem;
+  opacity: 0.75;
+}
+
+/* Breathing room under the colour band. The archive page sets its
+   own spacing, so this is scoped to the new pages only. */
+.cv,
+.apps,
+.contact {
+  padding-top: 3.5rem;
+}
+
+@media (max-width: 40em) {
+  .cv,
+  .apps,
+  .contact {
+    padding-top: 2rem;
+  }
+}
