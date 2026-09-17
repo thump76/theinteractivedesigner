@@ -328,3 +328,18 @@
   font-size: 0.9375rem;
   line-height: 1.5;
 }
+
+/* Space between the colour band and the page head. */
+.cv,
+.apps,
+.contact {
+  padding-top: 5rem;
+}
+
+@media (max-width: 40em) {
+  .cv,
+  .apps,
+  .contact {
+    padding-top: 2.5rem;
+  }
+}
