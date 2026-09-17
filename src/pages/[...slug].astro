@@ -21,6 +21,31 @@ const d = post.data.date;
 const fmt =
   [d.getDate(), d.getMonth() + 1].map((n) => String(n).padStart(2, '0')).join('.') +
   '.' + d.getFullYear();
+
+const site = 'https://theinteractivedesigner.co.uk';
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+
+// Article schema. The author @id is the same node PersonSchema defines
+// in the layout head, so every post resolves to one person rather than
+// a fresh Philip Brumpton each time.
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  '@id': `${canonical}#article`,
+  headline: post.data.title,
+  description: post.data.standfirst,
+  datePublished: d.toISOString(),
+  dateModified: (post.data.updated ?? d).toISOString(),
+  inLanguage: 'en-GB',
+  mainEntityOfPage: canonical,
+  url: canonical,
+  author: { '@id': `${site}/#philip` },
+  publisher: { '@id': `${site}/#svpply` },
+  isPartOf: { '@id': `${site}/#website` },
+  ...(post.data.image
+    ? { image: new URL(post.data.image, Astro.site).href }
+    : {}),
+};
 ---
 
 <Base
@@ -30,6 +55,8 @@ const fmt =
   type="article"
   published={d.toISOString()}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
+
   <article class="post">
     <a class="back" href="/">← Archive</a>
 
@@ -40,6 +67,9 @@ const fmt =
           {String(number).padStart(2, '0')}
         </span>
         <p class="label"><time datetime={d.toISOString()}>{fmt}</time></p>
+        <p class="byline">
+          <a href="/cv/" rel="author">Philip Brumpton</a>
+        </p>
       </div>
       {post.data.standfirst && <p class="post__standfirst">{post.data.standfirst}</p>}
     </header>
@@ -62,5 +92,22 @@ const fmt =
         </div>
       )}
     </div>
+
+    <aside class="post__author">
+      <img
+        class="post__author-photo"
+        src="/images/philip-brumpton-400.jpg"
+        width="400"
+        height="400"
+        alt=""
+        loading="lazy"
+      />
+      <p>
+        Written by <a href="/cv/" rel="author">Philip Brumpton</a>, a product designer
+        in South East London who still writes the CSS. He runs{' '}<a
+          href="https://vendum.coffee">VENDUM Coffee</a> and builds his own{' '}<a
+          href="/apps/">iPhone apps</a>.
+      </p>
+    </aside>
   </article>
 </Base>

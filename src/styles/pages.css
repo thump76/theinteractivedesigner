@@ -20,6 +20,15 @@
 
 /* --- shared headings ------------------------------------------- */
 
+.cv .portrait {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 0 1.5rem;
+  object-fit: cover;
+}
+
 .cv h1,
 .apps h1,
 .contact h1 {
@@ -80,15 +89,17 @@
   opacity: 0.7;
 }
 
-.cv .role-title {
+.cv .role-meta .role-title {
   font-weight: 500;
 }
 
-.cv .role-title::after {
-  content: ",";
+/* Separator lives in CSS so the markup stays clean and the two
+   spans can stack on narrow screens without a stray comma. */
+.cv .role-meta .role-title::after {
+  content: ",\00a0";
 }
 
-.cv .role-dates {
+.cv .role-meta .role-dates {
   white-space: nowrap;
 }
 
@@ -231,18 +242,89 @@
   opacity: 0.75;
 }
 
-/* Breathing room under the colour band. The archive page sets its
-   own spacing, so this is scoped to the new pages only. */
-.cv,
-.apps,
-.contact {
-  padding-top: 3.5rem;
+/* --- Byline on posts ------------------------------------------- */
+
+.byline {
+  margin: 0.5rem 0 2rem;
+  font-size: 0.9375rem;
+  opacity: 0.75;
 }
 
-@media (max-width: 40em) {
-  .cv,
-  .apps,
-  .contact {
-    padding-top: 2rem;
-  }
+.byline a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 35%, transparent);
+}
+
+.byline a:hover {
+  border-bottom-color: currentColor;
+}
+
+/* --- Footer ring ----------------------------------------------- */
+
+.site-footer {
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 3px solid #E30613;
+  font-size: 0.9375rem;
+}
+
+.site-footer nav[aria-label="Site"] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+  margin-bottom: 1.75rem;
+  font-weight: 700;
+}
+
+.site-footer nav[aria-label] p {
+  margin: 0 0 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  opacity: 0.6;
+}
+
+.site-footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+}
+
+.site-footer .colophon {
+  margin: 1.75rem 0 0;
+  font-size: 0.875rem;
+  opacity: 0.65;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+}
+
+/* --- Author card at the foot of each post ---------------------- */
+
+.post__author {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 1.1rem;
+  align-items: center;
+  margin: 3.5rem 0 0;
+  padding-top: 1.5rem;
+  border-top: 3px solid #E30613;
+  max-width: 68ch;
+}
+
+.post__author-photo {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.post__author p {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.5;
 }
