@@ -60,9 +60,24 @@ const year = new Date().getFullYear();
         <slot />
       </main>
 
-      <footer class="foot">
-        <span>&copy; {year} The Interactive Designer</span>
-        <a href="/rss.xml">Subscribe</a>
+      <footer class="site-footer">
+        <nav aria-label="Other sites by Philip Brumpton">
+          <p>Also by me</p>
+          <ul>
+            <li><a href="https://vendum.coffee" rel="me noopener">VENDUM Coffee</a></li>
+            <li><a href="https://getkeycut.com" rel="me noopener">KeyCut</a></li>
+            <li><a href="https://whoismymp.uk" rel="me noopener">Who Is My MP?</a></li>
+            <li><a href="https://thelords.app" rel="me noopener">The Lords</a></li>
+            <li><a href="https://bikesand.co" rel="me noopener">Bikes&amp;.co</a></li>
+            <li><a href="https://thenegativescanner.co.uk" rel="me noopener">The Negative Scanner</a></li>
+            <li><a href="https://p100.uk" rel="me noopener">P100</a></li>
+          </ul>
+        </nav>
+        <p class="colophon">
+          <span>&copy; {year} The Interactive Designer. Philip Brumpton.</span>
+          <a href="/rss.xml">Subscribe</a>
+          <a href="https://www.linkedin.com/in/philipbrumpton" rel="me noopener">LinkedIn</a>
+        </p>
       </footer>
     </div>
   </body>
