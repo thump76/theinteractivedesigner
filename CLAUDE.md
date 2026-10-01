@@ -43,6 +43,11 @@ the short version plus the rules.
 - Keep it focused: he doesn't want to read as a jack of all trades. A small
   number of things, each with one proof point.
 
+## Images
+
+- Philip crops images himself. Use them as supplied: resize and compress
+  only, never crop or reframe.
+
 ## Don't
 
 - Don't add a CSS framework, analytics, cookie banners or a database.
