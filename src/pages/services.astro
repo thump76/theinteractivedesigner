@@ -1,0 +1,76 @@
+---
+import Layout from '../layouts/Base.astro';
+
+const title = 'Services. Philip Brumpton, product designer';
+const description =
+  'Product design, front end build, SwiftUI apps and Gaussian splat scanning of rooms and locations. Philip Brumpton, South East London.';
+const email = 'philipbrumpton@gmail.com';
+
+const services = [
+  {
+    id: 'product-design',
+    name: 'Product design',
+    forWho: 'product teams who need a senior designer for a contract or a fixed piece of work',
+    body: `Research, framing the problem, design in Figma, and presenting it to the people who need to say yes. Subscription and checkout pages, design systems, article templates, accessibility to WCAG. At Which? a research-led redesign of the subscribe page lifted conversion by 14%.`,
+  },
+  {
+    id: 'design-and-build',
+    name: 'Design and front end build',
+    forWho: 'small businesses and teams without a developer free',
+    body: `I design the site and then write it: HTML, CSS, Astro or React, hosted on Cloudflare. Fast, flat, cheap to run, and nothing sitting in a queue waiting for someone else. This site is one. So is <a href="https://bikesand.co">Bikes&amp;.co</a>.`,
+  },
+  {
+    id: 'apps',
+    name: 'iPhone and iPad apps',
+    forWho: 'founders and organisations with a focused idea for one app',
+    body: `Native apps in SwiftUI, from first sketch to the App Store, including in-app purchase and App Clips. I have shipped several of my own, listed on the <a href="/apps/">apps page</a>.`,
+  },
+  {
+    id: 'scanning',
+    name: 'Gaussian splat room and location scanning',
+    forWho: 'venues, holiday lets, estate agents, film and event location scouts',
+    body: `I scan a room, a building or an outdoor location and turn it into a Gaussian splat: a photoreal 3D capture you can walk around in a browser, not a stitched panorama. Delivered as a viewer you can embed on your own site, plus the source files.`,
+  },
+];
+---
+
+<Layout title={title} description={description}>
+  <article class="cv services">
+    <header>
+      <h1>Services</h1>
+      <p class="standfirst">
+        Four things. All of them come down to the same habit: design it, then build it
+        myself, so it actually ships.
+      </p>
+    </header>
+
+    <section id="what">
+      <h2>What I do</h2>
+      {services.map((s) => (
+        <article class="role" id={s.id}>
+          <h3>{s.name}</h3>
+          <p class="role-meta">For {s.forWho}</p>
+          <p set:html={s.body} />
+        </article>
+      ))}
+    </section>
+
+    <section id="working">
+      <h2>Working together</h2>
+      <p>
+        Contract or fixed-price project. Hybrid in London, or remote. Scanning is on
+        site, anywhere I can drive to from South East London.
+      </p>
+      <p>
+        Background and work history are on the <a href="/cv/">CV</a>.
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>Get in touch</h2>
+      <p>
+        <a href={`mailto:${email}`}>{email}</a>. Tell me what you need and roughly when.
+      </p>
+    </section>
+  </article>
+</Layout>
