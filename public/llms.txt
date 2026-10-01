@@ -6,6 +6,7 @@ Written by him, published as flat HTML, no database.
 
 ## About
 
+- [Services](https://theinteractivedesigner.co.uk/services/): product design, design and front end build, SwiftUI apps, Gaussian splat room and location scanning
 - [CV](https://theinteractivedesigner.co.uk/cv/): work history, skills, what he's looking for
 - [Apps](https://theinteractivedesigner.co.uk/apps/): every app he has shipped, with App Store links
 - [Contact](https://theinteractivedesigner.co.uk/contact/): philipbrumpton@gmail.com
