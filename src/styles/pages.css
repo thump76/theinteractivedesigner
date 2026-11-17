@@ -336,6 +336,34 @@
   padding-top: 5rem;
 }
 
+/* --- Press ----------------------------------------------------- */
+
+.press blockquote {
+  margin: 1.75rem 0;
+  padding-left: 1.1rem;
+  border-left: 3px solid #E30613;
+  max-width: 68ch;
+}
+
+.press blockquote p:first-child {
+  font-size: 1.2rem;
+  line-height: 1.45;
+  margin: 0 0 0.4rem;
+}
+
+.press ul {
+  max-width: 68ch;
+  padding-left: 1.2rem;
+}
+
+.press li {
+  margin-bottom: 0.5rem;
+}
+
+.press header .role-meta {
+  margin-bottom: 1.25rem;
+}
+
 @media (max-width: 40em) {
   .cv,
   .apps,

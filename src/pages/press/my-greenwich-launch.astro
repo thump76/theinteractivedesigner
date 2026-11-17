@@ -1,0 +1,189 @@
+---
+import Layout from '../../layouts/Base.astro';
+
+const headline =
+  'Plumstead designer launches free app showing Greenwich residents who represents them';
+const title = `${headline}. Press release`;
+const description =
+  'My Greenwich turns a Royal Borough of Greenwich postcode into your ward, your councillors and your MP, with a free directory of independent local businesses. Free on the App Store.';
+
+const site = 'https://theinteractivedesigner.co.uk';
+const canonical = `${site}/press/my-greenwich-launch/`;
+const appStore = 'https://apps.apple.com/gb/app/my-greenwich/id6803486290';
+const pressEmail = 'contact@mygreenwich.uk';
+const published = '2026-11-17';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'NewsArticle',
+  '@id': `${canonical}#release`,
+  headline,
+  description,
+  datePublished: published,
+  dateModified: published,
+  inLanguage: 'en-GB',
+  mainEntityOfPage: canonical,
+  url: canonical,
+  author: { '@id': `${site}/#philip` },
+  publisher: { '@id': `${site}/#svpply` },
+  about: {
+    '@type': 'SoftwareApplication',
+    name: 'My Greenwich',
+    operatingSystem: 'iOS',
+    url: 'https://mygreenwich.uk',
+    installUrl: appStore,
+  },
+};
+
+const facts = [
+  ['Name', 'My Greenwich'],
+  ['What it does', "Shows a resident's ward, ward councillors and MP from a postcode, plus independent local businesses nearby."],
+  ['Area', 'Royal Borough of Greenwich: 23 wards, 55 councillors.'],
+  ['Released', 'November 2026'],
+  ['Price', 'Free. No account, no advertising.'],
+  ['Platform', 'iPhone, iOS 26 or later. Not yet on Android.'],
+  ['Listings', 'Free for independent businesses based in the borough. Optional My Greenwich+ upgrade, £4.99 for 12 months with no auto-renewal, adds a photo and a labelled Featured slot.'],
+  ['Data', "Office for National Statistics postcode data via postcodes.io, the Royal Borough of Greenwich's published councillor information, and UK Parliament."],
+  ['Made by', 'Philip Brumpton, SVPPLY&.CO LIMITED, Plumstead SE18.'],
+];
+---
+
+<Layout title={title} description={description} type="article" published={published}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
+
+  <article class="cv press">
+    <header>
+      <p class="role-meta">
+        <a href="/press/">Press</a>. For immediate release,
+        <time datetime={published}>17 November 2026</time>
+      </p>
+      <h1>{headline}</h1>
+      <p class="standfirst">
+        My Greenwich turns a postcode into your ward, your councillors and your MP, with a
+        free directory of independent local businesses.
+      </p>
+    </header>
+
+    <section id="release">
+      <p>
+        A free iPhone app that tells residents of the Royal Borough of Greenwich who
+        represents them is now available on the App Store. My Greenwich was designed and
+        built by Philip Brumpton, a product designer who lives in Plumstead, independently
+        of the council.
+      </p>
+      <p>
+        Enter a Greenwich postcode and the app shows which of the borough's 23 wards it is
+        in, the councillors for that ward with their party and how to contact them, and the
+        MP for the constituency. Greenwich has 55 councillors, two or three for each ward.
+        Everything links back to the council's and Parliament's own pages.
+      </p>
+      <blockquote>
+        <p>
+          "Most people I talk to locally couldn't tell you which ward they live in, let
+          alone who their councillors are. The information is all public, it's just spread
+          across several websites. I wanted one screen that answers the question and then
+          gets out of the way."
+        </p>
+        <p class="role-meta">Philip Brumpton, designer of My Greenwich</p>
+      </blockquote>
+      <p>
+        The app is neutral by design. Councillors are shown in the same way whichever party
+        they represent, with no commentary and no ratings. There is no sign-up, no
+        advertising and no tracking, and the postcode a resident enters stays on their
+        phone.
+      </p>
+      <p>
+        My Greenwich also includes a directory of independent businesses, sole traders and
+        community groups across the borough, sorted by category and shown nearest first. A
+        basic listing is free and every submission is checked by hand before it appears.
+        Chains and franchises are not listed.
+      </p>
+      <blockquote>
+        <p>
+          "The directory is free to join and sorted by distance, so the cafe or trader
+          nearest to you comes first. It's a small way of putting independent businesses in
+          front of the people who live round the corner from them."
+        </p>
+        <p class="role-meta">Philip Brumpton</p>
+      </blockquote>
+      <p>
+        The app covers all 23 wards, from Thamesmead Moorings to Eltham Page. It was built
+        to the accessibility standards expected of local government services, with support
+        for larger text, VoiceOver and reduced motion.
+      </p>
+      <p>
+        My Greenwich is the third civic app from Brumpton, after
+        <a href="https://whoismymp.uk">Who Is My MP?</a> and
+        <a href="https://thelords.app">The Lords</a>, which use Parliament's public data. He
+        plans to bring the same approach to other London boroughs, and is open to working
+        with councils that want to manage their own content.
+      </p>
+      <p>
+        My Greenwich is free on the App Store:
+        <a href={appStore}>apps.apple.com/gb/app/my-greenwich/id6803486290</a>
+      </p>
+      <p><strong>Ends</strong></p>
+    </section>
+
+    <section id="facts">
+      <h2>Key facts</h2>
+      <dl>
+        {facts.map(([k, v]) => (
+          <>
+            <dt>{k}</dt>
+            <dd>{v}</dd>
+          </>
+        ))}
+        <dt>Website</dt>
+        <dd><a href="https://mygreenwich.uk">mygreenwich.uk</a></dd>
+        <dt>App Store</dt>
+        <dd><a href={appStore}>apps.apple.com/gb/app/my-greenwich/id6803486290</a></dd>
+      </dl>
+    </section>
+
+    <section id="notes">
+      <h2>Notes to editors</h2>
+      <ul>
+        <li>
+          My Greenwich is an independent app. It is not produced, funded or endorsed by the
+          Royal Borough of Greenwich, UK Parliament or any political party.
+        </li>
+        <li>
+          The app does not show bin collection days. Residents should use the council's
+          website for those.
+        </li>
+        <li>
+          Residents do not create an account. The only personal information collected is
+          from businesses that choose to submit a listing.
+        </li>
+        <li>
+          Contains public sector information licensed under the Open Government Licence
+          v3.0 and Parliamentary information licensed under the Open Parliament Licence
+          v3.0.
+        </li>
+        <li>
+          Screenshots, the app icon and a photograph of Philip Brumpton are available on
+          request, free to use with coverage of the app.
+        </li>
+      </ul>
+    </section>
+
+    <section id="about">
+      <h2>About Philip Brumpton</h2>
+      <p>
+        Philip Brumpton is a product designer who has designed for the web since 1999, most
+        recently at Which? and before that John Lewis. He lives in Plumstead, where he also
+        runs VENDUM Coffee, a small-batch roastery. He designs and builds his own iPhone
+        apps. Full background on the <a href="/cv/">CV</a>.
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>Press contact</h2>
+      <p>
+        Philip Brumpton, <a href={`mailto:${pressEmail}`}>{pressEmail}</a>. Available for
+        interview, in person in the borough or by phone.
+      </p>
+    </section>
+  </article>
+</Layout>
