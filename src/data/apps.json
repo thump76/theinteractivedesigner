@@ -51,6 +51,23 @@
     "icon": "/icons/the-lords.png"
   },
   {
+    "slug": "my-greenwich",
+    "name": "My Greenwich",
+    "tagline": "Your postcode, your councillors, your MP.",
+    "description": "Enter a Royal Borough of Greenwich postcode and see your ward, your councillors and how to contact them, and your MP, plus a free directory of independent local businesses. All 23 wards. No account, no adverts, and independent of the council.",
+    "url": "https://mygreenwich.uk",
+    "appStoreUrl": "https://apps.apple.com/gb/app/my-greenwich/id6803486290",
+    "appStoreId": "6803486290",
+    "platforms": "iPhone",
+    "os": "iOS 26 or later",
+    "category": "ReferenceApplication",
+    "price": "0",
+    "priceNote": "Free, optional paid upgrade for business listings",
+    "post": "/press/my-greenwich-launch/",
+    "released": "2026-11",
+    "icon": "/icons/my-greenwich.png"
+  },
+  {
     "slug": "vendum-coffee",
     "name": "VENDUM Coffee",
     "tagline": "Reorder your beans with Apple Pay in two taps.",
