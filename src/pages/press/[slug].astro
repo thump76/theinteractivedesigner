@@ -1,0 +1,132 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const releases = await getCollection('press', ({ data }) => !data.draft);
+  return releases.map((release) => ({
+    params: { slug: release.id },
+    props: { release },
+  }));
+}
+
+const { release } = Astro.props;
+const { Content } = await render(release);
+const r = release.data;
+
+const site = 'https://theinteractivedesigner.co.uk';
+const canonical = `${site}/press/${release.id}/`;
+const email = r.contact ?? 'philipbrumpton@gmail.com';
+const title = `${r.headline}. Press release`;
+const image = r.image ?? r.icon;
+const pretty = (url) => url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
+
+// The date never appears on the page. It is here so search engines
+// can read the release as a news article.
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'NewsArticle',
+  '@id': `${canonical}#release`,
+  headline: r.headline,
+  description: r.standfirst,
+  datePublished: r.date.toISOString(),
+  inLanguage: 'en-GB',
+  mainEntityOfPage: canonical,
+  url: canonical,
+  ...(image && { image: `${site}${image}` }),
+  author: { '@id': `${site}/#philip` },
+  publisher: { '@id': `${site}/#svpply` },
+  about: {
+    '@type': r.kind === 'App' ? 'SoftwareApplication' : r.kind === 'Website' ? 'WebSite' : 'Product',
+    name: r.subject,
+    ...(r.website && { url: r.website }),
+    ...(r.appStore && { installUrl: r.appStore, operatingSystem: 'iOS' }),
+  },
+};
+
+const notes = [
+  ...r.notes,
+  'Screenshots, the app icon or logo, and a photograph of Philip Brumpton are available on request, free to use with coverage.',
+];
+---
+
+<Layout title={title} description={r.standfirst} image={image} type="article">
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
+
+  <article class="cv press">
+    <header>
+      <p class="role-meta">
+        <a href="/press/">Press</a>. {r.kind}. For immediate release
+      </p>
+      <h1>{r.headline}</h1>
+      <p class="standfirst">{r.standfirst}</p>
+    </header>
+
+    {r.image && (
+      <figure class="press-figure">
+        <img src={r.image} alt={r.imageAlt ?? ''} loading="eager" decoding="async" />
+      </figure>
+    )}
+
+    <section id="release" class="press-body">
+      <Content />
+      <p><strong>Ends</strong></p>
+    </section>
+
+    {(r.facts.length > 0 || r.website || r.appStore) && (
+      <section id="facts">
+        <h2>Key facts</h2>
+        <dl>
+          <dt>Name</dt>
+          <dd>{r.subject}</dd>
+          {r.facts.map((f) => (
+            <>
+              <dt>{f.label}</dt>
+              <dd>{f.value}</dd>
+            </>
+          ))}
+          {r.website && (
+            <>
+              <dt>Website</dt>
+              <dd><a href={r.website}>{pretty(r.website)}</a></dd>
+            </>
+          )}
+          {r.appStore && (
+            <>
+              <dt>App Store</dt>
+              <dd><a href={r.appStore}>{pretty(r.appStore)}</a></dd>
+            </>
+          )}
+        </dl>
+      </section>
+    )}
+
+    <section id="notes">
+      <h2>Notes to editors</h2>
+      <ul>
+        {notes.map((n) => <li>{n}</li>)}
+      </ul>
+    </section>
+
+    <section id="about">
+      <h2>About Philip Brumpton</h2>
+      <p>
+        Philip Brumpton is a product designer in Plumstead, South East London, who has
+        designed for the web since 1999, most recently at Which? and before that John Lewis,
+        Dods Parliamentary Communications and PhotoBox. He designs and builds his own iPhone
+        and iPad apps in SwiftUI, and runs VENDUM Coffee, a small-batch roastery in
+        Plumstead. His company is SVPPLY&amp;.CO LIMITED. Full background on
+        the <a href="/cv/">CV</a>.
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>Press contact</h2>
+      <p>
+        Philip Brumpton, <a href={`mailto:${email}`}>{email}</a>. Available for interview,
+        in person in South East London or by phone.
+      </p>
+      <p class="press-more"><a href="/press/">All press releases</a></p>
+    </section>
+  </article>
+</Layout>

@@ -97,3 +97,110 @@ collections:
         name: body
         widget: markdown
         hint: Bold, italic, headings, lists, quotes and images. This is the whole post.
+
+  - name: press
+    label: Press releases
+    label_singular: Press release
+    folder: src/content/press
+    create: true
+    slug: '{{slug}}'   # URL is /press/<slug>/
+    extension: md
+    format: frontmatter
+    summary: '{{subject}}: {{headline}}'
+    sortable_fields: [date, subject]
+    view_filters:
+      - label: Drafts
+        field: draft
+        pattern: true
+
+    fields:
+      - label: Headline
+        name: headline
+        widget: string
+        hint: The news, in one line. Written like a newspaper headline.
+
+      - label: Product name
+        name: subject
+        widget: string
+
+      - label: Type
+        name: kind
+        widget: select
+        options: [App, Website, Shop, Hardware]
+
+      - label: Standfirst
+        name: standfirst
+        widget: text
+        hint: One or two sentences. Shows on /press/ and as the search and social preview.
+
+      - label: Date
+        name: date
+        widget: datetime
+        format: 'YYYY-MM-DD'
+        date_format: 'DD/MM/YYYY'
+        time_format: false
+        picker_utc: false
+        hint: Never shown on the page. Used to order releases and for Google.
+
+      - label: Lead image
+        name: image
+        widget: image
+        required: false
+        choose_url: false
+        hint: Used as supplied, never cropped.
+
+      - label: Image description
+        name: imageAlt
+        widget: string
+        required: false
+
+      - label: Icon or logo
+        name: icon
+        widget: image
+        required: false
+        choose_url: false
+        hint: Shown on /press/ when there is no lead image.
+
+      - label: Website
+        name: website
+        widget: string
+        required: false
+        pattern: ['^https?://', 'Must start with http:// or https://']
+
+      - label: App Store link
+        name: appStore
+        widget: string
+        required: false
+        pattern: ['^https?://', 'Must start with http:// or https://']
+
+      - label: Press contact email
+        name: contact
+        widget: string
+        required: false
+        hint: Leave blank to use philipbrumpton@gmail.com.
+
+      - label: Key facts
+        name: facts
+        widget: list
+        required: false
+        summary: '{{fields.label}}'
+        fields:
+          - { label: Label, name: label, widget: string }
+          - { label: Value, name: value, widget: text }
+
+      - label: Notes to editors
+        name: notes
+        widget: list
+        required: false
+        field: { label: Note, name: note, widget: text }
+        hint: The images-on-request note is added automatically.
+
+      - label: Draft
+        name: draft
+        widget: boolean
+        default: false
+
+      - label: Release text
+        name: body
+        widget: markdown
+        hint: Third person. Quotes as block quotes, with the attribution as a second paragraph inside the quote. "Ends" is added automatically.

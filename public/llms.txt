@@ -10,7 +10,17 @@ Written by him, published as flat HTML, no database.
 - [CV](https://theinteractivedesigner.co.uk/cv/): work history, skills, what he's looking for
 - [Apps](https://theinteractivedesigner.co.uk/apps/): every app he has shipped, with App Store links
 - [Press](https://theinteractivedesigner.co.uk/press/): press releases and press contact
-- [My Greenwich launch press release](https://theinteractivedesigner.co.uk/press/my-greenwich-launch/): free iPhone app showing Royal Borough of Greenwich residents their ward, councillors and MP, November 2026
+- [Press releases feed](https://theinteractivedesigner.co.uk/press.xml)
+- [My Greenwich](https://theinteractivedesigner.co.uk/press/my-greenwich-launch/): free iPhone app showing Royal Borough of Greenwich residents their ward, councillors and MP
+- [Who Is My MP?](https://theinteractivedesigner.co.uk/press/who-is-my-mp-launch/): free app showing any MP's voting record, speeches and interests from a postcode
+- [The Lords](https://theinteractivedesigner.co.uk/press/the-lords-launch/): find members of the House of Lords by specialism
+- [KeyCut](https://theinteractivedesigner.co.uk/press/keycut-launch/): iPad control surface for Final Cut Pro shortcuts
+- [VENDUM Coffee](https://theinteractivedesigner.co.uk/press/vendum-coffee-launch/): small-batch coffee roastery in Plumstead
+- [VENDUM Coffee app](https://theinteractivedesigner.co.uk/press/vendum-coffee-app-clip/): reorder by scanning the bag, Apple Pay in two taps
+- [P100](https://theinteractivedesigner.co.uk/press/p100-ceefax/): Ceefax recreated with live news, sport and weather
+- [The Interactive Designer relaunch](https://theinteractivedesigner.co.uk/press/the-interactive-designer-relaunch/): database-free personal site on Astro and Cloudflare
+- [Bikes&.co shop and app](https://theinteractivedesigner.co.uk/press/bikesand-co-shop/): cycling gear for commuters
+- [Bikes&.co GPS theft tracker](https://theinteractivedesigner.co.uk/press/bikesand-co-gps-tracker/): hidden bike tracker with iPhone app
 - [Contact](https://theinteractivedesigner.co.uk/contact/): philipbrumpton@gmail.com
 
 ## Writing
