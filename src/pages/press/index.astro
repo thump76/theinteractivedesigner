@@ -1,36 +1,58 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Base.astro';
-import releases from '../../data/press.json';
 
 const title = 'Press. Philip Brumpton';
 const description =
-  'Press releases and press contact for Philip Brumpton and the apps he makes, including My Greenwich, Who Is My MP? and The Lords.';
+  'Press releases for the apps, websites, shops and hardware made by Philip Brumpton, including My Greenwich, Who Is My MP?, The Lords, KeyCut, VENDUM Coffee and Bikes&.co.';
 const email = 'philipbrumpton@gmail.com';
 
-const sorted = [...releases].sort((a, b) => b.date.localeCompare(a.date));
-const fmt = (iso) =>
-  new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+const releases = (await getCollection('press', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+const kinds = ['App', 'Website', 'Shop', 'Hardware'].filter((k) =>
+  releases.some((r) => r.data.kind === k)
+);
+const count = (k) => releases.filter((r) => r.data.kind === k).length;
+const label = (k, n) =>
+  k === 'Hardware' ? 'hardware' : `${k.toLowerCase()}${n === 1 ? '' : 's'}`;
 ---
 
 <Layout title={title} description={description}>
+  <link rel="alternate" type="application/rss+xml" title="Press releases" href="/press.xml" />
+
   <article class="cv press">
     <header>
       <h1>Press</h1>
       <p class="standfirst">
-        Press releases for the things I make. Each one is free to quote, shorten or run in
-        full, and comes with the facts and a contact.
+        Press releases for the things I've designed, built and launched: apps, websites,
+        shops and hardware. Each one is free to quote, shorten or run in full, and comes
+        with the facts and a contact.
+      </p>
+      <p class="role-meta press-tally">
+        {kinds.map((k) => <span>{count(k)} {label(k, count(k))}</span>)}
       </p>
     </header>
 
     <section id="releases">
       <h2>Releases</h2>
-      {sorted.map((r) => (
-        <article class="role" id={r.slug}>
-          <h3><a href={`/press/${r.slug}/`}>{r.headline}</a></h3>
-          <p class="role-meta"><time datetime={r.date}>{fmt(r.date)}</time>, {r.subject}</p>
-          <p>{r.summary}</p>
-        </article>
-      ))}
+      <ul class="press-list">
+        {releases.map((r) => {
+          const img = r.data.image ?? r.data.icon;
+          return (
+            <li class="press-card" id={r.id}>
+              <a href={`/press/${r.id}/`}>
+                <span class={`press-card__img${r.data.image ? '' : ' press-card__img--icon'}`}>
+                  {img && <img src={img} alt="" loading="lazy" decoding="async" />}
+                </span>
+                <span class="press-card__kind">{r.data.kind}. {r.data.subject}</span>
+                <span class="press-card__headline">{r.data.headline}</span>
+              </a>
+              <p>{r.data.standfirst}</p>
+            </li>
+          );
+        })}
+      </ul>
     </section>
 
     <section id="contact">
@@ -40,8 +62,9 @@ const fmt = (iso) =>
         interview, and can send screenshots, app icons and a photograph on request.
       </p>
       <p>
-        Background is on the <a href="/cv/">CV</a>. Every app is on the
-        <a href="/apps/">apps page</a>.
+        Background is on the <a href="/cv/">CV</a>. Every app is on
+        the <a href="/apps/">apps page</a>. New releases are also in
+        the <a href="/press.xml">press feed</a>.
       </p>
     </section>
   </article>

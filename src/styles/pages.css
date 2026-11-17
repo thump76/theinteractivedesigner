@@ -364,6 +364,142 @@
   margin-bottom: 1.25rem;
 }
 
+
+.press blockquote p + p {
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.press-body {
+  max-width: 68ch;
+}
+
+.press-figure {
+  margin: 0 0 2.5rem;
+}
+
+.press-figure img {
+  display: block;
+  max-width: 100%;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+}
+
+.press-tally {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+}
+
+/* Release cards on /press/. Images are shown whole, never cropped. */
+.press-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 !important;
+  max-width: none !important;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  gap: 2.5rem 2rem;
+}
+
+.press .press-card {
+  margin: 0;
+  border-top: 3px solid currentColor;
+  padding-top: 1rem;
+}
+
+.press-card a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.press-card__img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 3 / 2;
+  background: color-mix(in srgb, currentColor 6%, transparent);
+  margin-bottom: 1rem;
+}
+
+.press-card__img img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+.press-card__img--icon img {
+  width: 96px;
+  height: 96px;
+  border-radius: 22%;
+}
+
+.press-card__kind {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #E30613;
+  margin-bottom: 0.4rem;
+}
+
+.press-card__headline {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.press-card a:hover .press-card__headline,
+.press-card a:focus-visible .press-card__headline {
+  text-decoration: underline;
+  text-decoration-color: #E30613;
+  text-decoration-thickness: 2px;
+}
+
+.press-card p {
+  margin: 0.6rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+/* Releases print cleanly, ready to save as PDF and attach. */
+@media print {
+  .masthead,
+  .band,
+  .site-footer,
+  .press-more {
+    display: none !important;
+  }
+  .press {
+    padding-top: 0 !important;
+  }
+  .press a {
+    color: inherit;
+  }
+  .press-body a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    word-break: break-all;
+  }
+  .press-figure img {
+    max-height: 9cm;
+  }
+  .press h2,
+  .press dt,
+  .press blockquote {
+    break-after: avoid;
+    break-inside: avoid;
+  }
+}
+
 @media (max-width: 40em) {
   .cv,
   .apps,
